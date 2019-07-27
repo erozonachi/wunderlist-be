@@ -4,7 +4,12 @@
   "description": "Wunderlist 2.0 takes your traditional to-do list app and automates it. It not only allows you to write your to-do, work, grocery, trip and household lists, but allows you to set up recurring to do lists by date and time. (Think recurring events on google calendar + to-do list app). No matter how much is on your plate, Wunderlist 2.0 makes it super easy to remember all the little recurring to-dos and surprise to-dos that pop up unexpectedly. 1. An on-boarding process for a new general user 3. Ability to easily create / setup a to do list item 4. Ability to easily edit / update / mark items as complete 5. Ability to completely delete an item 6. Ability to easily search / find items 7. Ability to schedule items and automatically repeat on a weekly or daily or monthly basis 8. Page to display their existing to-do’s for the day, or for the month. Can also view items marked as completed, and deleted items (saved for seven days) Stretch: Add the ability to collaborate. Share your lists and work collaboratively on projects with your colleagues, friends and family.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "babel-node ./src/index.js",
+    "start": "node ./dist/index.js",
+    "dev": "NODE_ENV=development npm-run-all server",
+    "clean": "rimraf dist",
+    "build": "babel ./src --out-dir dist",
+    "watch": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -18,17 +23,30 @@
   },
   "homepage": "https://github.com/erozonachi/wunderlist-be#readme",
   "dependencies": {
+    "@babel/runtime": "^7.5.5",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "helmet": "^3.20.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.19.1",
-    "pg": "^7.12.0"
+    "npm-run-all": "^4.1.5",
+    "pg": "^7.12.0",
+    "rimraf": "^2.6.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
     "jest": "^24.8.0",
     "nodemon": "^1.19.1",
     "supertest": "^4.0.2"
