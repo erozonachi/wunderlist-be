@@ -68,5 +68,9 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  
+  return knex.schema
+    .dropTableIfExists('users')
+    .dropTableIfExists('todos')
+    .dropTableIfExists('tasks')
+    .dropTableIfExists('shares');
 };
